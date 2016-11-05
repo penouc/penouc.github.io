@@ -1,26 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[偶尔日记]]></title>
-  <subtitle><![CDATA[道路总是指向河流]]></subtitle>
-  <link href="/atom.xml" rel="self"/>
-  <link href="http://penouc.com/"/>
-  <updated>2016-11-05T13:31:39.000Z</updated>
-  <id>http://penouc.com/</id>
-  
-  <author>
-    <name><![CDATA[penouc]]></name>
-    
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title><![CDATA[手把手教你在vutlr上搭建ss服务器]]></title>
-    <link href="http://penouc.com/2016/10/16/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85%20Shadowsocks%20%E6%9C%8D%E5%8A%A1/"/>
-    <id>http://penouc.com/2016/10/16/手把手教你从零开始安装 Shadowsocks 服务/</id>
-    <published>2016-10-16T14:56:32.000Z</published>
-    <updated>2016-11-05T13:31:39.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="u624B_u628A_u624B_u6559_u4F60_u4ECE_u96F6_u5F00_u59CB_u5B89_u88C5_Shadowsocks__u670D_u52A1"><a href="#u624B_u628A_u624B_u6559_u4F60_u4ECE_u96F6_u5F00_u59CB_u5B89_u88C5_Shadowsocks__u670D_u52A1" class="headerlink" title="手把手教你从零开始安装 Shadowsocks 服务"></a>手把手教你从零开始安装 Shadowsocks 服务</h1><blockquote>
+<!DOCTYPE html><html lang="中文"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title>手把手教你在vutlr上搭建ss服务器 · 偶尔日记</title><meta name="description" content="手把手教你在vutlr上搭建ss服务器 - penouc"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://penouc.com/atom.xml" title="偶尔日记"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="http://twitter.com/_penouc" target="_blank" class="nav-list-link">TWITTER</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li><li class="nav-list-item"><a href="https://github.com/penouc" target="_blank" class="nav-list-link">GITHUB</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">手把手教你在vutlr上搭建ss服务器</h1><div class="post-info">Oct 16, 2016</div><div class="post-content"><h1 id="u624B_u628A_u624B_u6559_u4F60_u4ECE_u96F6_u5F00_u59CB_u5B89_u88C5_Shadowsocks__u670D_u52A1"><a href="#u624B_u628A_u624B_u6559_u4F60_u4ECE_u96F6_u5F00_u59CB_u5B89_u88C5_Shadowsocks__u670D_u52A1" class="headerlink" title="手把手教你从零开始安装 Shadowsocks 服务"></a>手把手教你从零开始安装 Shadowsocks 服务</h1><blockquote>
 <p>如果你还未安装好ss服务，在这篇文章中，将会把整个操作分成4步，大家可以按照我写的这六步操作，最后搭建属于自己的服务。<br>如果你已经购买了DO家VPS，请跳转到<a href="/#%E6%90%AD%E5%BB%BAshadowsocks%E6%9C%8D%E5%8A%A1">搭建shadowsocks服务</a><br>如果你已经安装好ss服务，需要查看客户端如何配置，跳转到  <a href="/#%E5%AE%89%E8%A3%85shadowsocks%E5%AE%A2%E6%88%B7%E7%AB%AF">安装shadowsocks客户端</a></p>
 <h2 id="u6587_u4E2D_u5C06_u4F1A_u628AShadowsocks_u7B80_u79F0_u4E3Ass"><a href="#u6587_u4E2D_u5C06_u4F1A_u628AShadowsocks_u7B80_u79F0_u4E3Ass" class="headerlink" title="文中将会把Shadowsocks简称为ss"></a>文中将会把Shadowsocks简称为ss</h2><h2 id="u6CE8_u518C_u4E00_u4E2AVPS"><a href="#u6CE8_u518C_u4E00_u4E2AVPS" class="headerlink" title="注册一个VPS"></a>注册一个VPS</h2><p>首先，我们要选择一家国外的提供商。我使用过的国外的服务有DigtalOcean（后面简称为DO）和vultr。DO被封禁的ip非常的多(树大招风)，当然vultr被封的也有很多，所以在这一个步骤中，你可能需要经历多次操作，才能找到一个稳定可靠的服务。<br>以下是<a href="http://www.vultr.com/?ref=6942946-3B" title="vultr注册地址" target="_blank" rel="external">vultr</a>的注册链接，使用此链接您将获得赠送的20美元。<br>在chrome浏览器中打开这个链接，你将看到如下的页面<img src="DraggedImage.png" alt=""><br>然后你需要点击图中右上角的<strong>Create Account</strong>按钮，进入接下来的页面中，输入你的邮箱地址和密码，你将会跳转到一个你的个人页面<img src="DraggedImage-1.png" alt=""><br>vultr支持信用卡，paypal和在这个页面中输入你的支付信息。</p>
 <h2 id="u5F00_u542F_u4E00_u53F0_u673A_u5668"><a href="#u5F00_u542F_u4E00_u53F0_u673A_u5668" class="headerlink" title="开启一台机器"></a>开启一台机器</h2><p>完成上述的操作后，你就拥有完成接下来操作的权利了。<br>点击左侧面板上的Servers按钮，进入到了一个选购机器页面的页面<img src="DraggedImage-2.png" alt=""><br>如图所示，这里作者推荐日本的机器，北京联通非常的稳定可靠，经历了风风雨雨，目前为止还没有封，机器系统选择Ubuntu14.04（这个是根据个人喜好），但是后面的讲解中使用的命令都是用到Ubuntu的命令，所以推荐小白用户选择此系统，后面还有<strong>Additional Features</strong>, <strong>Startup Script </strong>, <strong>SSH Keys </strong>, <strong>Server Hostname &amp; Label</strong>选项，这些配置各位可以根据自己的需要进行相关的配置，选购完你的机器后就可以deploy你的VPS了。<br>等待Servers列表你的机器的<code>Status</code>的状态变成了running状态后，点击该机器，进入机器详细介绍页，如图所示<img src="DraggedImage-3.png" alt=""><br>此按钮<img src="DraggedImage-4.png" alt="">查看密码<br>在你的电脑上打开命令行工具，输入<br>    ssh root@你的ip<br>接下来输入你的密码，你就拥有了对这个台VPS的root控制权限了</p>
@@ -31,11 +9,12 @@
 <p>然后进入你的配置文件的目录，执行以下命令即可<br>    ssserver -c ss.conf.json<br>命令启动成功，如果你想在后台运行ss服务，需要输入如下命令<br>    ssserver -c ss.conf.json -d start</p>
 <h2 id="u5B89_u88C5ss_u5BA2_u6237_u7AEF"><a href="#u5B89_u88C5ss_u5BA2_u6237_u7AEF" class="headerlink" title="安装ss客户端"></a>安装ss客户端</h2><p>因为各个系统繁杂，其中配置各不相同，笔者也不能一一覆盖到，就不做推荐，iOS推荐<a href="https://itunes.apple.com/us/app/surge-web-developer-tool-proxy/id1040100637?mt=8" title="surge" target="_blank" rel="external">Surge</a>，<a href="https://itunes.apple.com/us/app/shadowrocket/id932747118?mt=8" title="Shadowrocket" target="_blank" rel="external">Shadowrocket</a>，macOS推荐shadowsocks-gui。具体可以参考<a href="https://shadowsocks.com/client.html" title="shadowsocks客户端" target="_blank" rel="external"> shadowsocks客户端 </a>，也可以通过Google等搜索引擎查询，或者大家如果平时在使用过程中，有使用感受体验比较好可以推荐的，请在留言中评论。</p>
 <p>本文收录于<a href="http://penouc.com">penouc</a>, 更多技术相关文章请点击链接，查看更多。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="u624B_u628A_u624B_u6559_u4F60_u4ECE_u96F6_u5F00_u59CB_u5B89_u88C5_Shadowsocks__u670D_u52A1"><a href="#u624B_u628A_u624B_u6559_u4F60_]]>
-    </summary>
-    
-  </entry>
-  
-</feed>
+</div></article></div></section><footer><div class="paginator"></div><div id="disqus_thread"></div><script>var disqus_shortname = 'penouc';
+var disqus_identifier = '2016/10/16/手把手教你从零开始安装 Shadowsocks 服务/';
+var disqus_title = '手把手教你在vutlr上搭建ss服务器';
+var disqus_url = 'http://penouc.com/2016/10/16/手把手教你从零开始安装 Shadowsocks 服务/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//penouc.disqus.com/count.js" async></script><div class="copyright"><p>© 2015 - 2016 <a href="http://penouc.com">penouc</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-71939507-1",'auto');ga('send','pageview');</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
